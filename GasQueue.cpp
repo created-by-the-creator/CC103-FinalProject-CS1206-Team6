@@ -5,9 +5,12 @@ int main () {
 
     cout << "Official file draft for GasQueue: Fuel Distribution System.";
     //Stacks : Assigned : Venice Anne Manacop
-    cout << "Stacks assigned to Venice Anne"
-    //Queue : Assigned: Kaixer Alvar
-    //Priority Queue : Assigned : Joshua Zamora
+    //Status: On-Going
 
+    //Queue : Assigned : Kaixer Alvar
+    //Status: Not Updated
+
+    //Priority Queue : Assigned : Joshua Zamora
+    //Status: Not Updated
     return 0;
 }
