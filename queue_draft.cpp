@@ -2,7 +2,8 @@
 #include <string>
 using namespace std;
 
-#define MAX 100
+#define MAX 50 
+//max 50
 
 //  CUSTOMER 
 struct Customer {
