@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-#define MAX 100  // Maximum number of customers allowed
+#define MAX 50  // Maximum number of customers allowed
 
 // Customer structure
 struct Customer {
