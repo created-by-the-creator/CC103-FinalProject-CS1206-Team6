@@ -4,22 +4,22 @@
 #include <string>
 using namespace std;
 
-#define MAX 50
+#define MAX 50  // Maximum number of customers allowed
 
-// ================= CUSTOMER =================
+// Customer structure
 struct Customer {
     string name;
     int priority; // 0 = regular, 1 = highest, 2 = secondary
 };
 
-// ================= PRIORITY COMPARATOR =================
+// Comparator for priority queue
 struct Compare {
     bool operator()(Customer a, Customer b) {
         return a.priority > b.priority;
     }
 };
 
-// ================= RECURSIVE DISPLAY =================
+// Recursive display for regular queue
 void displayRegular(queue<Customer> q) {
     if (q.empty()) return;
 
@@ -28,6 +28,7 @@ void displayRegular(queue<Customer> q) {
     displayRegular(q);
 }
 
+// Recursive display for priority queue
 void displayPriority(priority_queue<Customer, vector<Customer>, Compare> pq) {
     if (pq.empty()) return;
 
@@ -37,14 +38,14 @@ void displayPriority(priority_queue<Customer, vector<Customer>, Compare> pq) {
     displayPriority(pq);
 }
 
-// ================= MAIN SYSTEM =================
 int main() {
 
     queue<Customer> regularQueue;
     priority_queue<Customer, vector<Customer>, Compare> priorityQueue;
     stack<Customer> servedStack;
 
-    int totalCustomers = 0;
+    int totalCustomers = 0; // Track total number of customers
+
     int choice;
 
     do {
@@ -59,10 +60,9 @@ int main() {
 
         switch(choice) {
 
-        // ================= ADD CUSTOMER =================
         case 1: {
             if (totalCustomers >= MAX) {
-                cout << "Queue is FULL (" << MAX << " customers).\n";
+                cout << "Queue is FULL (Max 100 customers).\n";
                 break;
             }
 
@@ -88,7 +88,7 @@ int main() {
 
                 cout << "Enter priority level:\n";
                 cout << "1 - Ambulance / Fire Truck\n";
-                cout << "2 - Authority Vehicles\n";
+                cout << "2 - Other Authority Vehicles\n";
                 cout << "Choice: ";
                 cin >> priority;
 
@@ -107,7 +107,6 @@ int main() {
             break;
         }
 
-        // ================= SERVE CUSTOMER =================
         case 2:
             if (!priorityQueue.empty()) {
                 Customer served = priorityQueue.top();
@@ -130,7 +129,6 @@ int main() {
             }
             break;
 
-        // ================= UNDO =================
         case 3:
             if (!servedStack.empty()) {
                 Customer last = servedStack.top();
@@ -156,7 +154,6 @@ int main() {
             }
             break;
 
-        // ================= DISPLAY =================
         case 4:
             cout << "\n--- PRIORITY QUEUE ---\n";
             if (priorityQueue.empty()) {
