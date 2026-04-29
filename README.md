@@ -107,13 +107,14 @@ gasqueue.exe
 
 When the program starts you will see a menu:
 
+~~~
 ===== GASQUEUE SYSTEM =====
-
-Add Customer
-Serve Customer
-Undo Last Serve
-Display Queues
-Exit
+1. Add Customer
+2. Serve Customer
+3. Undo Last Serve
+4. Display Queues
+5. Exit
+~~~
 
 - **Option 1** — Add a customer. You will be asked for their name and whether they are regular or priority. Priority customers can be Emergency (1) or Authority (2).
 - **Option 2** — Serve the next customer. Priority customers are always served first.
