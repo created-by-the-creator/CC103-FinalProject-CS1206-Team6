@@ -157,7 +157,7 @@ int main() {
             break;
         }
 
-        // Case 4 now uses recursion instead of while loops
+        
         case 4: {
             cout << "\n--- PRIORITY QUEUE ---\n";
             if (priorityQueue.empty()) cout << "Empty\n";
@@ -170,7 +170,7 @@ int main() {
             cout << "\nTotal: " << totalCustomers << "/" << MAX << endl;
             break;
         }
-//💩
+
         }
 
     } while (choice != 5);
