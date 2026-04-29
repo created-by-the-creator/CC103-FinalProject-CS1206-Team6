@@ -6,7 +6,6 @@ using namespace std;
 
 #define MAX 50 
 
-//
 struct Customer {
     int id; 
     string name;
@@ -18,7 +17,22 @@ struct Compare {
         return a.priority > b.priority;
     }
 };
-//
+
+// Recursive display functions added here
+void displayPriorityQueue(priority_queue<Customer, vector<Customer>, Compare> pq) {
+    if (pq.empty()) return;                                    // base case
+    cout << pq.top().name << " (P" << pq.top().priority << ")\n";
+    pq.pop();
+    displayPriorityQueue(pq);                                  // recursive call
+}
+
+void displayRegularQueue(queue<Customer> q) {
+    if (q.empty()) return;                                     // base case
+    cout << q.front().name << endl;
+    q.pop();
+    displayRegularQueue(q);                                    // recursive call
+}
+
 int main() {
 
     // stores costumer in FIFO order
@@ -30,7 +44,6 @@ int main() {
     // stores SERVED costumers and used for UNDO features
     stack<Customer> historyStack; 
 
-    
     int totalCustomers = 0;
     int idCounter = 1;
     int choice;
@@ -48,12 +61,11 @@ int main() {
         cout << "----------------------------\n";
         cin.ignore();
 
-        
         switch(choice) {
 
         case 1: {
             if (totalCustomers >= MAX) {
-                cout << "System FULL.\n"; //if totalCustomers exceed or equal to MAX value which was initialized to 50 it will print "System FULL"
+                cout << "System FULL.\n";
                 break;
             }
 
@@ -68,7 +80,6 @@ int main() {
             int type;
             cout << "1. Regular\n2. Priority\nChoice: ";
             cin >> type;
-            
 
             if (type == 1) {
                 c.priority = 0;
@@ -79,7 +90,6 @@ int main() {
                 cout << "Priority level:\n";
                 cout << "1 - Emergency\n2 - Authority\nChoice: ";
                 cin >> c.priority;
-
 
                 if (c.priority != 1 && c.priority != 2) {
                     cout << "Invalid priority.\n";
@@ -121,7 +131,6 @@ int main() {
             break;
         }
 
-        
         case 3: {
             if (historyStack.empty()) {
                 cout << "Nothing to undo.\n";
@@ -148,26 +157,15 @@ int main() {
             break;
         }
 
-        ///
+        // Case 4 now uses recursion instead of while loops
         case 4: {
             cout << "\n--- PRIORITY QUEUE ---\n";
-            priority_queue<Customer, vector<Customer>, Compare> tempPQ = priorityQueue;
-
-            if (tempPQ.empty()) cout << "Empty\n";
-            while (!tempPQ.empty()) {
-                cout << tempPQ.top().name 
-                << " (P" << tempPQ.top().priority << ")\n";
-                tempPQ.pop();
-            }
+            if (priorityQueue.empty()) cout << "Empty\n";
+            else displayPriorityQueue(priorityQueue);
 
             cout << "\n--- REGULAR QUEUE ---\n";
-            queue<Customer> tempQ = regularQueue;
-
-            if (tempQ.empty()) cout << "Empty\n";
-            while (!tempQ.empty()) {
-                cout << tempQ.front().name << endl;
-                tempQ.pop();
-            }
+            if (regularQueue.empty()) cout << "Empty\n";
+            else displayRegularQueue(regularQueue);
 
             cout << "\nTotal: " << totalCustomers << "/" << MAX << endl;
             break;
