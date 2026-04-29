@@ -80,3 +80,63 @@ Manual implementations were first developed to understand how data structures wo
 ---
 
 ## 🚀 How to Run
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
+
+### 2. Compile the code
+```bash
+g++ main.cpp -o gasqueue
+```
+
+### 3. Run the program
+```bash
+# Windows
+gasqueue.exe
+
+# Mac / Linux
+./gasqueue
+```
+
+---
+
+## How to Use
+
+When the program starts you will see a menu:
+
+===== GASQUEUE SYSTEM =====
+
+Add Customer
+Serve Customer
+Undo Last Serve
+Display Queues
+Exit
+
+- **Option 1** — Add a customer. You will be asked for their name and whether they are regular or priority. Priority customers can be Emergency (1) or Authority (2).
+- **Option 2** — Serve the next customer. Priority customers are always served first.
+- **Option 3** — Undo the last serve and put the customer back in their queue.
+- **Option 4** — Display everyone currently in both queues.
+- **Option 5** — Exit the program.
+
+---
+
+## Priority Order
+
+| Level | Type      |
+|-------|-----------|
+| 1     | Emergency |
+| 2     | Authority |
+| 0     | Regular   |
+
+Emergency and authority customers are always served before regular customers regardless of arrival order.
+
+---
+
+## Notes
+
+- Maximum of 50 customers allowed at a time.
+- Regular customers are served in the order they arrived (FIFO).
+- Priority customers are sorted by urgency, not arrival time.
