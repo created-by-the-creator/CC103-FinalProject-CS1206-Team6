@@ -1,143 +1,91 @@
-# 🚗 GasQueue: Fuel Distribution System
+# GasQueue: Fuel Distribution System
+## ❓ Problem Description
+The ongoing global oil shortage has led to limited fuel availability, causing long queues, transportation delays, and disruptions in essential services. Existing fuel distribution systems commonly follow a first-come, first-served approach, which does not consider urgency among users.
 
-## 📌 Project Description
-GasQueue is a fuel distribution management system that simulates real-world queue operations using different data structures. It manages regular customers, priority customers, and served customer history using Queue, Priority Queue, and Stack.
+As a result, emergency responders and essential service vehicles may experience delays despite needing immediate access. Additionally, the lack of structured prioritization leads to inefficiency, unequal distribution, and difficulty in managing high-demand situations.
 
-The project demonstrates both **manual implementation of data structures (for learning purposes)** and **STL-based implementation (for system integration)**.
-
----
-
-## 🎯 Objectives
-- Simulate a real-world fuel queue system
-- Apply FIFO, Priority Scheduling, and LIFO concepts
-- Implement and understand data structures manually
-- Integrate STL data structures for efficient system design
-- Provide undo functionality for served customers
+This project addresses these issues by developing a structured fuel distribution system that uses appropriate data structures to manage regular and priority users efficiently.
 
 ---
 
 ## 🧩 Data Structures Used
 
-### 🔹 Manual Implementations (Learning Phase)
-- Stack (Array-based implementation with push/pop/peek)
-- Queue (Array-based implementation with front/rear logic)
+### 🔹 Queue
+- **What it is:** A FIFO (First In, First Out) data structure.
+- **Why used:** To manage regular customers fairly based on arrival order.
 
-### 🔹 STL Implementations (Final System)
-- Queue (STL `queue`) – Regular customers (FIFO)
-- Priority Queue (STL `priority_queue`) – Priority-based scheduling
-- Stack (STL `stack`) – Served customer history (Undo feature)
+### 🔹 Priority Queue
+- **What it is:** A data structure that serves elements based on priority level.
+- **Why used:** To ensure urgent users (e.g., emergency cases) are served before regular customers.
 
----
-
-## ⚙️ Features
-
-- Add customer (Regular or Priority)
-- Assign priority levels for emergency cases
-- Serve customers based on priority rules
-- Undo last served customer
-- Display current queues
-- Track total number of customers in system
+### 🔹 Stack
+- **What it is:** A LIFO (Last In, First Out) data structure.
+- **Why used:** To store served customers and allow undoing the most recent transaction.
 
 ---
 
-## 🔄 System Flow
+## ⚙️ Algorithm Explanation (Step-by-Step)
 
-1. Add customer to system  
-2. Identify customer type (Regular or Priority)  
-3. Place customer in correct data structure  
-4. Serve Priority customers first  
-5. If no priority customers exist, serve Regular customers  
-6. Store served customers in Stack (history)  
-7. Allow undo of last served customer  
+- Display menu options to the user using a loop.
+- Accept user input for selected operation.
+
+### Add Customer
+- Input customer details.
+- If regular → add to Queue.
+- If priority → add to Priority Queue with assigned level.
+
+### Serve Customer
+- Check Priority Queue first.
+- If not empty → serve highest priority customer.
+- Else → serve from regular Queue.
+- Store served customer in Stack.
+
+### Undo Operation
+- Retrieve last served customer from Stack.
+- Return customer to their original queue.
+
+### Display
+- Display Priority Queue contents.
+- Display Regular Queue contents using recursion.
 
 ---
 
-## 🧠 How It Works
+## 🔁 Iterative vs Recursive Comparison
 
-The system prioritizes emergency cases using a priority queue. Regular customers follow FIFO ordering. Every served customer is stored in a stack to allow undo functionality using LIFO behavior.
-Manual implementations were first developed to understand how data structures work internally, then replaced/augmented with STL versions for system integration and efficiency.
+### Iterative
+- Used in menu loop.
+- Faster because it avoids function call overhead.
+- Easier to control program flow.
+
+### Recursive
+- Used in displaying queue elements.
+- Easier to understand for sequential traversal.
+- Uses more memory due to function call stack.
 
 ---
 
-## 🛠️ Technologies Used
+## ⚖️ Design Decisions
 
-- C++
-- Data Structures:
-  - Manual Stack (Array-based)
-  - Manual Queue (Array-based)
-  - STL Queue
-  - STL Priority Queue (with custom comparator)
-  - STL Stack
+- Queue was chosen for fairness in handling regular customers.
+- Priority Queue was used to prioritize urgent cases efficiently.
+- Stack was used to implement undo functionality.
+- Recursion was used for clean and simple queue display logic.
+
+### Trade-offs:
+- Priority Queue does not preserve arrival order among same priority levels.
+- Undo feature restores last action but not full system state.
+- Recursion is less memory efficient than iteration but improves code clarity.
 
 ---
 
 ## 👥 Team Members
 
-- Alvar, Kaixer Emmanuel Oscar Antonio M.   – Queue Implementation (Manual + STL understanding) 
-- Manacop, Venice Anne M.                   – Stack / Undo Feature
-- Zamora, Emmanuel Joshua P.                – Priority Queue Logic  
+- Alvar, Kaixer Emmanuel Oscar Antonio M. – Queue Implementation  
+- Manacop, Venice Anne M. – Stack / Undo Feature  
+- Zamora, Emmanuel Joshua P. – Priority Queue Logic  
 
 ---
 
-## 🚀 How to Run
+## 🙏 Acknowledgement
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
-```
-
-### 2. Compile the code
-```bash
-g++ main.cpp -o gasqueue
-```
-
-### 3. Run the program
-```bash
-# Windows
-gasqueue.exe
-
-# Mac / Linux
-./gasqueue
-```
-
----
-
-## How to Use
-
-When the program starts you will see a menu:
-
-~~~
-===== GASQUEUE SYSTEM =====
-1. Add Customer
-2. Serve Customer
-3. Undo Last Serve
-4. Display Queues
-5. Exit
-~~~
-
-- **Option 1** — Add a customer. You will be asked for their name and whether they are regular or priority. Priority customers can be Emergency (1) or Authority (2).
-- **Option 2** — Serve the next customer. Priority customers are always served first.
-- **Option 3** — Undo the last serve and put the customer back in their queue.
-- **Option 4** — Display everyone currently in both queues.
-- **Option 5** — Exit the program.
-
----
-
-## Priority Order
-
-| Level | Type      |
-|-------|-----------|
-| 1     | Emergency |
-| 2     | Authority |
-| 0     | Regular   |
-
-Emergency and authority customers are always served before regular customers regardless of arrival order.
-
----
-
-## Notes
-
-- Maximum of 50 customers allowed at a time.
-- Regular customers are served in the order they arrived (FIFO).
-- Priority customers are sorted by urgency, not arrival time.
+We would like to express our sincere gratitude to our instructor for guiding us in understanding data structures and their practical applications in this project. We also thank God for giving us the strength, knowledge, and perseverance to complete this project successfully.
