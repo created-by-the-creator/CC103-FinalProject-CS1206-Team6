@@ -1,4 +1,4 @@
-# ⛽ GasQueue: Fuel Distribution System
+#  GasQueue: Fuel Distribution System
 
 > A priority-based fuel distribution system that ensures emergency and authority vehicles are served first — no matter how long the line gets.
 
@@ -6,7 +6,7 @@
 
 ---
 
-## ❓ Problem Description
+##  Problem Description
 
 The ongoing global oil shortage has led to limited fuel availability, causing long queues, transportation delays, and disruptions in essential services. Existing fuel distribution systems commonly follow a **first-come, first-served** approach, which does not consider urgency among users.
 
@@ -16,7 +16,7 @@ This project addresses these issues by developing a structured fuel distribution
 
 ---
 
-## 🧩 Data Structures Used
+##  Data Structures Used
 
 ### 🔹 Queue
 - **What it is:** A FIFO (First In, First Out) data structure.
@@ -34,7 +34,7 @@ This project addresses these issues by developing a structured fuel distribution
 
 ---
 
-## 🏛️ OOP Design
+##  OOP Design
 
 The system is built using a single class `GasQueueSystem` that encapsulates all data and behavior.
 
@@ -64,7 +64,7 @@ The system is built using a single class `GasQueueSystem` that encapsulates all 
 
 ---
 
-## ⚙️ Algorithm Explanation (Step-by-Step)
+##  Algorithm Explanation (Step-by-Step)
 
 ### 1. Add Customer
 - Input customer name and type (regular or priority)
@@ -95,7 +95,7 @@ The system is built using a single class `GasQueueSystem` that encapsulates all 
 
 ---
 
-## ⏱️ Time Complexity
+##  Time Complexity
 
 | Operation | Complexity | Reason |
 |---|---|---|
@@ -108,7 +108,7 @@ The system is built using a single class `GasQueueSystem` that encapsulates all 
 
 ---
 
-## 🔁 Iterative vs Recursive
+##  Iterative vs Recursive
 
 ### Iterative
 - Used in the main menu loop and search functions
@@ -123,7 +123,7 @@ The system is built using a single class `GasQueueSystem` that encapsulates all 
 
 ---
 
-## ⚖️ Design Decisions & Trade-offs
+##  Design Decisions & Trade-offs
 
 - **Queue** was chosen for fairness — regular customers served in strict arrival order
 - **Priority Queue** was used so urgent cases are served efficiently without manual sorting
@@ -136,7 +136,7 @@ The system is built using a single class `GasQueueSystem` that encapsulates all 
 
 ---
 
-## 👥 Team Members
+##  Team Members
 
 | Name | Role |
 |---|---|
@@ -146,6 +146,6 @@ The system is built using a single class `GasQueueSystem` that encapsulates all 
 
 ---
 
-## 🙏 Acknowledgement
+##  Acknowledgement
 
 We would like to express our sincere gratitude to our instructor for guiding us in understanding data structures and their practical applications in this project. We also thank God for giving us the strength, knowledge, and perseverance to complete this project successfully.
