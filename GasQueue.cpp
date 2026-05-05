@@ -1,12 +1,11 @@
 #include <iostream>
+#include <string>
 #include <queue>
 #include <stack>
-#include <string>
 using namespace std;
 
 #define MAX 50 
 
-//
 struct Customer {
     int id; 
     string name;
